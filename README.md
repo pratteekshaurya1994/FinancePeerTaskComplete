@@ -17,4 +17,4 @@ Install dependencies with `yarn install`
 
 Start the dev server with `react-native start`
 
-Run "yarn run-android" to build the application on your emulator
+Run `yarn run-android` to build the application on your emulator
