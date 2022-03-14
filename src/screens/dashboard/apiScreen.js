@@ -11,7 +11,6 @@ import {
 import {COLORS} from '../../constants/colors';
 import {SizeConfig} from '../../constants/size-config';
 
-// import HeaderComponent from "./components/header";
 export default class ApiScreen extends React.Component {
   constructor(props) {
     super(props);

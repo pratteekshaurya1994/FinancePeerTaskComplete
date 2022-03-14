@@ -53,7 +53,8 @@ const LocationScreen = ({navigation}) => {
                 coordinate={{
                   latitude: latitude,
                   longitude: longitude,
-                }}></Marker>
+                }}
+              />
             </MapView>
           </View>
         </>

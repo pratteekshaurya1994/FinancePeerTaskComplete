@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -17,7 +17,7 @@ const HomeScreen = ({navigation}) => {
       <ImageBackground
         source={require('../../assets/bgImage2.jpg')}
         style={styles.bgImage}>
-        <View style={styles.horizontalScroll}>
+        <View style={{}}>
           <View style={styles.horizontalTitleContainer}>
             <Text style={styles.horizontalTitleText}>
               Horizontal Scroll Banner

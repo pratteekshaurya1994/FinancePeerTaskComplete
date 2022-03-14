@@ -10,9 +10,8 @@ const StartupScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>pic</Text>
-      <Text style={styles.title}>a</Text>
-      <Text style={styles.title}>day</Text>
+      <Text style={styles.title}>FinancePeer</Text>
+      <Text style={styles.title}>Task</Text>
     </View>
   );
 };
@@ -25,11 +24,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'green',
-    flexDirection: 'row',
   },
   title: {
     fontWeight: 'bold',
-    fontSize: 10,
+    fontSize: 20,
     color: 'white',
   },
 });

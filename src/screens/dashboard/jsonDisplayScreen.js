@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Alert,
+  ActivityIndicator,
 } from 'react-native';
 import {SizeConfig} from '../../constants/size-config';
 import {COLORS} from '../../constants/colors';
@@ -36,16 +37,12 @@ const JsonDisplayScreen = ({navigation}) => {
     setIsLoaded(false);
     try {
       const jsonValue = await AsyncStorage.getItem('somekey');
-
       const list = JSON.parse(jsonValue);
-
       setDataList(list);
       setIsLoaded(true);
       setIsLoading(false);
-      // console.log("list: ", dataList);
-      // return jsonValue != null ? JSON.parse(jsonValue) : null;
     } catch (e) {
-      // error reading value
+      console.log(e);
     }
   };
 
@@ -86,11 +83,22 @@ const JsonDisplayScreen = ({navigation}) => {
           <Text style={styles.BtnText}>Get file from local storage</Text>
         </View>
       </TouchableOpacity>
-      <ScrollView
-        style={styles.scrollViewContainer}
-        showsVerticalScrollIndicator={false}>
-        <RenderList />
-      </ScrollView>
+      {isLoading && (
+        <>
+          <View style={styles.loader}>
+            <ActivityIndicator size="large" color={COLORS.blackDark} />
+          </View>
+        </>
+      )}
+      {isLoaded && (
+        <>
+          <ScrollView
+            style={styles.scrollViewContainer}
+            showsVerticalScrollIndicator={false}>
+            <RenderList />
+          </ScrollView>
+        </>
+      )}
     </SafeAreaView>
   );
 };
@@ -102,6 +110,12 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: 'center',
     // alignItems: 'center',
+  },
+  loader: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
   },
 
   Btn: {

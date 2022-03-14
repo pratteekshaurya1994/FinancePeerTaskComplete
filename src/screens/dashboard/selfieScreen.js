@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -6,11 +6,11 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+  Alert,
 } from 'react-native';
 import {SizeConfig} from '../../constants/size-config';
 import {COLORS} from '../../constants/colors';
 import * as ImagePicker from 'react-native-image-picker';
-// import HeaderComponent from "./components/header";
 
 const SelfieScreen = ({navigation}) => {
   const [imageSource, setImageSource] = useState(null);
@@ -38,17 +38,13 @@ const SelfieScreen = ({navigation}) => {
         console.log('User tapped custom button: ', response.customButton);
       } else {
         let source = {uri: response.assets[0].uri};
-
-        // ADD THIS
         setImageSource(source.uri);
-        // console.log('>>>>', response.assets[0].uri);
       }
     });
   }
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* <HeaderComponent title="Selfie Screen" /> */}
       <View style={styles.mainConatiner}>
         <View style={styles.titleContainer}>
           <Text style={styles.titleText}>
